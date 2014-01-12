@@ -264,10 +264,10 @@ cmake_url="http://www.cmake.org/files/v2.8/cmake-2.8.6.tar.gz"
 cmake_file="cmake-${cmake_version}.tar.gz"
 cmake_tar_dir="cmake-${cmake_version}"
 
-opencv_version="2.4.2"
+opencv_version="2.4.8"
 opencv_dir="OpenCV-${opencv_version}"
 opencv_file="${opencv_dir}.tar.gz"
-opencv_url="https://s3.amazonaws.com/loku-python/${opencv_dir}.tar.bz2"
+opencv_url="http://garr.dl.sourceforge.net/project/opencvlibrary/opencv-unix/${opencv_version}/opencv-${opencv_version}.zip"
 
 cache_target=${cache}/${cmake_file}
 build_target=${build}/.heroku
