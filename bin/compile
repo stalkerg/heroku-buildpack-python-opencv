@@ -319,7 +319,7 @@ if [ ! -f ${cache_target} ]; then
   echo "Compiling OpenCV v${opencv_version}..." | indent
   #Compile OpenCV
   echo "Start load opencv..." | indent
-  curl -s ${opencv_url} > ${opencv_file}
+  curl -L -s ${opencv_url} > ${opencv_file}
   echo "Load end opencv..." | indent
   tar xf ${opencv_file}
   cd ${opencv_dir}
