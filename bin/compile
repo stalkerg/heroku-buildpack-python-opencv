@@ -323,7 +323,6 @@ if [ ! -f ${cache_target} ]; then
   echo "Load end opencv..." | indent
   tar xf ${opencv_file}
   cd ${opencv_dir}
-  rm -r build
   mkdir -p build
   cd build
   echo "Start cmake for OpenCV..." | indent
