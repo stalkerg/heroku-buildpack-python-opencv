@@ -280,7 +280,7 @@ cmake_tar_dir="cmake-${cmake_version}"
 opencv_version="2.4.8"
 opencv_dir="opencv-${opencv_version}"
 opencv_file="${opencv_dir}.tar.gz"
-opencv_url="http://hyperthese.net/.bordel/opencv/opencv-${opencv_version}.tar.gz"
+opencv_url="https://github.com/Itseez/opencv/archive/${opencv_version}.tar.gz"
 
 cache_target=${cache}/${cmake_file}
 build_target=${build}/.heroku
@@ -318,7 +318,9 @@ if [ ! -f ${cache_target} ]; then
 
   echo "Compiling OpenCV v${opencv_version}..." | indent
   #Compile OpenCV
+  echo "Start load opencv..." | indent
   curl -s ${opencv_url} > ${opencv_file}
+  echo "Load end opencv..." | indent
   tar xf ${opencv_file}
   cd ${opencv_dir}
   rm -r build
