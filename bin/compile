@@ -282,39 +282,31 @@ opencv_dir="opencv-${opencv_version}"
 opencv_file="${opencv_dir}.tar.gz"
 opencv_url="https://github.com/Itseez/opencv/archive/${opencv_version}.tar.gz"
 
-cache_target=${cache}/${cmake_file}
-build_target=${build}/.heroku
-target=/app/.heroku
+#cache_target=${cache}/${cmake_file}
+#build_target=${build}/.heroku
+#target=/app/.heroku
 
-if [ ! -f ${cache_target} ]; then
-  echo "No cached compile detected. Bulding..." | indent
-  cd $build
+#if [ ! -f ${cache_target} ]; then
+#  echo "No cached compile detected. Bulding..." | indent
+#  cd $build
   
-  echo "Compiling cmake v${cmake_version}..." | indent
-  #Compile cmake
-  curl -s ${cmake_url} > ${cmake_file}
-  tar zxf ${cmake_file}
-  cd ${cmake_tar_dir}
-  ./bootstrap --prefix=${target} | indent
-  make | indent
-  make install | indent
-  cd ..
+#  echo "Compiling cmake v${cmake_version}..." | indent
+#  #Compile cmake
+#  curl -s ${cmake_url} > ${cmake_file}
+#  tar zxf ${cmake_file}
+#  cd ${cmake_tar_dir}
+#  ./bootstrap --prefix=${target} | indent
+#  make | indent
+#  make install | indent
+#  cd ..
 
   #Create cache slug
-  tar czf ${cache_target} -C ${target} .
-fi
+#  tar czf ${cache_target} -C ${target} .
+#fi
 
-mkdir -p ${build_target}
-tar xzf ${cache_target} -C ${build_target}
-PATH=${build_target}/bin:$PATH
-
-# Store new artifacts in cache. For CMake. 
-bpwatch start dump_cache
-  for dir in $CACHED_DIRS; do
-    rm -rf $CACHE_DIR/$dir
-    cp -R $dir $CACHE_DIR/
-  done
-bpwatch stop dump_cache
+#mkdir -p ${build_target}
+#tar xzf ${cache_target} -C ${build_target}
+#PATH=${build_target}/bin:$PATH
 
 cache_target=${cache}/${opencv_file}
 build_target=${build}/.heroku
