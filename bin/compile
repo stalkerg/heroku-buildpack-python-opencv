@@ -330,8 +330,8 @@ if [ ! -f ${cache_target} ]; then
    -DCMAKE_BUILD_TYPE=RELEASE -DBUILD_SHARED_LIBS=OFF \
    -DBUILD_NEW_PYTHON_SUPPORT=ON -DCMAKE_SHARED_LINKER_FLAGS="-fPIC" \
    -DBUILD_DOCS=OFF -DBUILD_PERF_TESTS=OFF -DBUILD_TESTS=OFF \
-   -DBUILD_opencv_gpu=OFF -DBUILD_opencv_ocl=OFF -DBUILD_opencv_highgui=OFF \
-   -DBUILD_opencv_video=OFF -DBUILD_opencv_videostab=OFF -DBUILD_opencv_calib3d=OFF ..
+   -DBUILD_opencv_gpu=OFF -DBUILD_opencv_ocl=OFF -DBUILD_opencv_ts=OFF \
+   ..
   make | indent
   make install | indent
   cd ..
